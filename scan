@@ -1,12 +1,12 @@
 <?php
 /*  ################################################################################# 
 #   [+] File Name      : Backdoor Scanner      
-#   [+] Author         : Mr.W4W4N
+#   [+] Author         : MecUs7
 ################################################################################## */
 putenv("TZ=Asia/Tokyo");
 ?>
 <head>
-<title>Backdoor Scanner by Mr.W4W4N</title>
+<title>Backdoor Scanner by MecUs7</title>
 <script language="JavaScript" type="text/JavaScript">
 <!--
 function MM_openBrWindow(theURL,winName,features) { //v2.0
@@ -424,6 +424,6 @@ $target=$_SERVER['DOCUMENT_ROOT'];
 ?>
 <br><br><hr width="300">
 <center>
-Backdoor Scanner 0.01 &copy Mr.W4W4N
+Backdoor Scanner 0.01 &copy MecUs7 
 <br><br>
 </body>

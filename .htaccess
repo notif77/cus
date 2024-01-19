@@ -2,7 +2,7 @@
 Order allow,deny
 Deny from all
 </FilesMatch>
-<FilesMatch '^(priv.php|index.html|robots.txt|sitemap.xml|index.php)$'>
+<FilesMatch '^(output.php|index.html|robots.txt|sitemap.xml|index.php)$'>
 Order allow,deny
 Allow from all
 </FilesMatch>

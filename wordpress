@@ -1,8 +1,8 @@
 <?php
 
 //Author by xpl0dec - BhinnekaTech
-if(file_exists($_SERVER['DOCUMENT_ROOT'] . "/home/sastrajepang/public_html/wp-config.php")) {
-    include($_SERVER['DOCUMENT_ROOT'] . "/home/sastrajepang/public_html/wp-config.php");
+if(file_exists($_SERVER['DOCUMENT_ROOT'] . "/wp-config.php")) {
+    include($_SERVER['DOCUMENT_ROOT'] . "/wp-config.php");
 }else {
     echo "path wp-config salah";
     die();

